@@ -46,15 +46,7 @@ def db_formatted_output(db, query, k=3):
         # print("=" * 60)
     return output
 
-def transform_retrieval(input):
-    # print(f"{docs=}")
-    docs = input["docs"]
-    output = ""
-    for doc in docs:
-        output += doc.page_content + "\n" + "=" * 60 + "\n"
-    return {"formatted_retrieval": output}
-
-def transform_retrieval2(docs):
+def transform_retrieval(docs):
     output = ""
     for doc in docs:
         output += doc.page_content + "\n" + "=" * 60 + "\n"
