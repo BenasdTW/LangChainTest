@@ -39,4 +39,4 @@ llm_chain = (
 question = "What is Isaac Sim"
 out = llm_chain.invoke(question)
 print(out)
-llm_chain.get_graph().print_ascii()
+# llm_chain.get_graph().print_ascii()

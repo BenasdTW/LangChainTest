@@ -16,7 +16,7 @@ def get_collection(collection, embedding_model, db_path):
     if not collection in collections:
         raise Exception("Collection not found")
     else:
-        db = Chroma(collection, embedding_model, persist_directory="./chroma_test")
+        db = Chroma(collection, embedding_model, persist_directory=db_path)
     return db
 
 def create_basic_pdf_rag(pdf_path, chunk_size, chunk_overlap, collection, embedding_model, db_path):
@@ -24,13 +24,11 @@ def create_basic_pdf_rag(pdf_path, chunk_size, chunk_overlap, collection, embedd
     splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
     texts = loader.load_and_split(splitter)
 
-    db_path = "./chroma_test"
-    collection = "collection0"
     collections = list_collections(db_path)
 
     if collection in collections:
         print("Overwriting existing collection")
-        db = Chroma(collection, embedding_model, persist_directory="./chroma_test")
+        db = Chroma(collection, embedding_model, persist_directory=db_path)
         db.delete_collection()
 
     db = Chroma.from_documents(texts, embedding_model, collection_name=collection, persist_directory=db_path)
