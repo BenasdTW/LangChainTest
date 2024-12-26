@@ -83,6 +83,6 @@ llm_chain = (
 
 # print(chain.invoke({"question": "What is Isaac Sim? Answer in English."}))
 # print(chain.invoke({"question": "什麼是 Isaac Sim 模擬器? 用繁體中文回答。"}))
-# print(llm_chain.invoke("What is Isaac Sim? Answer in English."))
-print(llm_chain.invoke("什麼是 Isaac Sim 模擬器? 用繁體中文回答。"))
+print(llm_chain.invoke("What is Isaac Sim?"))
+print(llm_chain.invoke("什麼是 Isaac Sim 模擬器?"))
 

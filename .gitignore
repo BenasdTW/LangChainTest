@@ -4,4 +4,4 @@ __pycache__/
 
 token.txt
 test*.py
-t*.py
+t[0-9]*.py
